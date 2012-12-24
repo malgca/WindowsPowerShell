@@ -96,5 +96,5 @@ function git-add-vim
 		cd $currentDirectory
 	}
 
-	#refactor this function into something that can be used for automating git adding and pushing for repo's that need it often (e.g. WindowsPowerShell repo.)
+	#TODO: Refactor this function into something that can be used for automating git adding and pushing for repo's that need it often (e.g. WindowsPowerShell repo.)
 }
