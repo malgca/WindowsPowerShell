@@ -15,7 +15,7 @@ Set-Alias nb $NETBEANSPATH
 Set-Alias netbeans $NETBEANSPATH
 
 # Functions
-Function nav($directory) 
+function nav($directory) 
 { 
 	switch($directory)
 	{
@@ -24,8 +24,77 @@ Function nav($directory)
 	}	
 }
 
-Function edit-profile { vim $profile }
+function edit-profile { vim $profile }
 
-Function edit-vimrc { vim "~\_vimrc" }
+function edit-vimrc { vim "~\_vimrc" }
 
-Function edit-gvimrc { vim "~\_gvimrc" }
+function edit-gvimrc { gvim "~\_gvimrc" }
+
+function reload-profile {
+    @(
+        $Profile.AllUsersAllHosts,
+        $Profile.AllUsersCurrentHost,
+        $Profile.CurrentUserAllHosts,
+        $Profile.CurrentUserCurrentHost
+    ) | % {
+        if(Test-Path $_){
+            Write-Verbose "Running $_"
+            . $_
+        }
+    }    
+}
+
+function git-add-vim 
+{
+	$doesGitExist = Test-path $env:GIT_HOME
+
+	if(!$doesGitExist)
+	{
+		Write-Host "Git has either not yet been installed on this machine or set to itspath variable."
+		return
+	}
+
+	$currentDirectory = get-location
+	
+	if($currentDirectory.toString() -ne $home)
+	{
+		cd $home
+	}
+
+	$isHomeGitInit = Test-path $home\.git
+	
+	if(!$isHomeGitInit)
+	{
+		cd $home
+		git init
+	}
+
+	git add _gvimrc _vimrc
+
+	$commitNow = Read-Host "Your vim files have been staged. Would you like to push your changes up stream? [y] [n]"
+
+	if(($commitNow -eq "y") -or 
+	($commitNow -eq "Y") -or 
+	($commitNow -eq "yes") -or
+	($commitNow -eq "Yes"))
+	{
+		$commitMessage = Read-Host "What will your commit message be?"
+		Write-Host "Committing..."
+		git commit -m $commitMessage
+		Write-Host "Now push!"
+		git push
+		return
+	}
+	else
+	{
+		Write-Host "Very good sir. Goodbye."
+		return
+	}
+
+	if($currentDirectory.toString() -ne $home)
+	{
+		cd $currentDirectory
+	}
+
+	#refactor this function into something that can be used for automating git adding and pushing for repo's that need it often (e.g. WindowsPowerShell repo.)
+}

@@ -1,0 +1,38 @@
+#Powershell script file for all functions that act on VIM or GVIM
+
+Function edit-profile { vim $profile }
+
+Function edit-vimrc { vim "~\_vimrc" }
+
+Function edit-gvimrc { gvim "~\_gvimrc" }
+
+Function git-add-vim 
+{
+	$doesGitExist = Test-path $env:GIT_HOME
+
+	if(!$doesGitExist)
+	{
+		return
+	}
+
+	$isHomeGitInit = Test-path $home\.git
+	
+	if(!$isHomeGitInit)
+	{
+		cd $home
+		git init
+	}
+
+	$currentDirectory = get-location
+	
+	if($currentDirectory -ne $home)
+	{
+		cd $home
+		git add _gvimrc _vimrc	
+		cd $currentDirectory
+	}
+	else
+	{
+		git add _gvimrc _vimrc
+	}
+}
