@@ -1,3 +1,6 @@
+# Profile Variables
+$isGitInstalled = Test-Path env:GIT_HOME
+
 # Path Variables
 $SCRIPTPATH = "~\Documents\WindowsPowerShell\Scripts"
 $VIMPATH = "C:\Program Files (x86)\Vim\vim73\vim.exe"
@@ -46,11 +49,9 @@ function reload-profile {
 
 function git-add-vim 
 {
-	$doesGitExist = Test-path $env:GIT_HOME
-
-	if(!$doesGitExist)
+	if(!$isGitInstalled)
 	{
-		Write-Host "Git has either not yet been installed on this machine or set to itspath variable."
+		Write-Host "Git is either not installed on this machine or set to its path variable."
 		return
 	}
 
@@ -65,8 +66,19 @@ function git-add-vim
 	
 	if(!$isHomeGitInit)
 	{
-		cd $home
 		git init
+	}
+
+	$doesVimrcExist = Test-Path _vimrc
+
+	if(!$doesVimrcExist)
+	{
+		git clone https://github.com/malgca/vim.git
+		
+		mv ~\vim\_gvimrc ~\gvimrc
+		mv ~\vim\_vimrc ~\_vimrc
+		
+		return
 	}
 
 	git add _gvimrc _vimrc

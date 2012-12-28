@@ -77,11 +77,12 @@ function git-add-vim
 		
 		mv ~\vim\_gvimrc ~\gvimrc
 		mv ~\vim\_vimrc ~\_vimrc
-		
+		mv ~\vim\abbreviations.vim ~\abbreviations.vim 
+
 		return
 	}
 
-	git add _gvimrc _vimrc
+	git add _gvimrc _vimrc abbreviations.vim
 
 	$commitNow = Read-Host "Your vim files have been staged. Would you like to push your changes up stream? [y] [n]"
 
