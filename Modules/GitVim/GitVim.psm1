@@ -1,11 +1,11 @@
 # This scripts keeps my vim config scripts up to date with my git repo
 $ErrorAction = "Inquire"
-$isGitInstalled = Test-Path env:GIT_HOME
+$isGitInstalled = Get-Command git -TotalCount 1
 $isInternetConnected = [Activator]::CreateInstance([Type]::GetTypeFromCLSID([Guid]‘{DCB00C01-570F-4A9B-8D69-199FDBA5723B}’)).IsConnectedToInternet
 
 function Push-VimRepo 
 {
-	if(!$isGitInstalled)
+	if(!($isGitInstalled -eq $null))
 	{
 		write-host "Git is either not installed on this machine or set to path"
 		return

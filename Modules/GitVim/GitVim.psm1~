@@ -1,6 +1,6 @@
 # This scripts keeps my vim config scripts up to date with my git repo
 $ErrorAction = "Inquire"
-$isGitInstalled = Test-Path env:GIT_HOME
+$isGitInstalled = Get-Command git -TotalCount 1
 $isInternetConnected = [Activator]::CreateInstance([Type]::GetTypeFromCLSID([Guid]‘{DCB00C01-570F-4A9B-8D69-199FDBA5723B}’)).IsConnectedToInternet
 
 function Push-VimRepo 
@@ -12,14 +12,14 @@ function Push-VimRepo
 	}
 
 	$currentDirectory = gl
-	
+
 	if($currentDirectory.toString() -ne $home)
 	{
 		cd $home
 	}
 
 	$isHomeGitInit = Test-path $home\.git
-	
+
 	if(!$isHomeGitInit)
 	{
 		git init
@@ -30,12 +30,10 @@ function Push-VimRepo
 	if(!$doesVimrcExist)
 	{
 		if(!$isInternetConnected) {
-
 			return
-
 		}
 		git clone https://github.com/malgca/vim.git
-		
+
 		mv ~\vim\_gvimrc ~\gvimrc
 		mv ~\vim\_vimrc ~\_vimrc
 		mv ~\vim\abbreviations.vim ~\abbreviations.vim 
@@ -45,35 +43,32 @@ function Push-VimRepo
 	git add _gvimrc _vimrc .vim
 
 	$commitNow = Read-Host "Your vim files have been staged. Would you like to push your changes up stream? [y] [n]"
-	$commitNow	
+
 	while(($commitNow -ne "y") -and ($commitNow -ne "yes") -and ($commitNow -ne "n") -and ($commitNow -ne "no"))
 	{
-		write-host "In the loop!"
-		read-host
-		if(($commitNow -eq "y") -or ($commitNow -eq "yes"))
-		{
-			$commitMessage = Read-Host "What will your commit message be?"
-			Write-Host "Committing..."
-			git commit -m $commitMessage
-			Write-Host "Now push!"
-			git push
-		}
-		elseif(($commitNow -eq "n") -or ($commitNow -eq "no"))
-		{
-			Write-Host "Very good sir. Goodbye."
-			start-sleep -seconds 3
-		}
-		else {
-			write-host "Invalid input. Press enter to try again."
-			read-host
-		}
+		write-host "Invalid input, please enter either [y] or [n]"
+		$commitNow = Read-Host "Your vim files have been staged. Would you like to push your changes up stream? [y] [n]"
 	}
+
+	if(($commitNow -eq "y") -or ($commitNow -eq "yes")) {
+		$commitMessage = Read-Host "What will your commit message be?"
+		Write-Host "Committing..."
+		git commit -m $commitMessage
+		Write-Host "Now push!"
+		git push
+	}
+	elseif(($commitNow -eq "n") -or ($commitNow -eq "no")) {
+		Write-Host "Very good sir. Goodbye."
+		start-sleep -seconds 3
+	}
+	else {
+		write-host "Invalid input. Press enter to try again."
+		read-host
+	}
+
 	if($currentDirectory.toString() -ne $home)
 	{
 		cd $currentDirectory
 	}
-	
-	write-host "Successfully ran Upload-VimRepo function."
-	read-host
-	#TODO: Refactor this function into something that can be used for automating git adding and pushing for repo's that need it often (e.g. WindowsPowerShell repo.)
+#TODO: Refactor this function into something that can be used for automating git adding and pushing for repo's that need it often (e.g. WindowsPowerShell repo.)
 }

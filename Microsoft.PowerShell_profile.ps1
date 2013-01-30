@@ -1,6 +1,7 @@
-# modules imported
+# Modules Imported
 Import-Module GitVim
-# Profile Variables
+Import-Module Navigation
+Import-Module Edit
 
 # Path Variables
 $SCRIPTPATH = "~\Documents\WindowsPowerShell\Scripts"
@@ -8,8 +9,7 @@ $VIMPATH = "C:\Program Files (x86)\Vim\vim73\vim.exe"
 $GVIMPATH = "C:\Program Files (x86)\Vim\vim73\gvim.exe"
 $NETBEANSPATH = "C:\Program Files\NetBeans 7.2\bin\netbeans64.exe"
 
-
-# Custom Aliases
+# Launcher Aliases
 Set-Alias vi $VIMPATH
 Set-Alias vim $VIMPATH
 Set-Alias gvi $GVIMPATH
@@ -18,9 +18,5 @@ Set-Alias gvim $GVIMPATH
 Set-Alias nb $NETBEANSPATH
 Set-Alias netbeans $NETBEANSPATH
 
-# Functions
-function Edit-Profile { vim $profile }
-
-function Edit-Vimrc { vim "~\_vimrc" }
-
-function Edit-Gvimrc { gvim "~\_gvimrc" }
+# Load posh-git example profile
+. 'C:\Users\Moo\Documents\WindowsPowerShell\Scripts\Posh-Git\profile.example.ps1'
