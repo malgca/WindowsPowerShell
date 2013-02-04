@@ -22,12 +22,17 @@ function Move-Home
 
 function Move-PoshGit
 {
-	cd "~\Documents\WindowsPowerShell\Scripts\Posh-Git\"
+	cd "~\Documents\WindowsPowerShell\Modules\Posh-Git\"
 }
 
 function Move-WindowsPowerShellScripts
 {
 	cd "~\Documents\WindowsPowerShell\Scripts\"
+}
+
+function Move-DownloadManga
+{
+	cd "~\Downloads\WindowsPowerShell\Scripts\MangaDownload\"
 }
 
 # Navigation aliases
@@ -37,6 +42,7 @@ Set-Alias mods Move-WindowsPowerShellModules
 Set-Alias tests Move-WindowsPowerShellTests
 Set-Alias home Move-Home
 Set-Alias posh Move-PoshGit
+Set-Alias dm Move-DownloadManga
 
 # Export members so they can be picked up as aliases in the $profile 
 # file

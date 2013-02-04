@@ -22,11 +22,17 @@ function Move-Home
 
 function Move-PoshGit
 {
-	cd "~\Documents\WindowsPowerShell\Scripts\Posh-Git\"
+	cd "~\Documents\WindowsPowerShell\Modules\Posh-Git\"
+}
+
+function Move-WindowsPowerShellScripts
+{
+	cd "~\Documents\WindowsPowerShell\Scripts\"
 }
 
 # Navigation aliases
 Set-Alias wps Move-WindowsPowerShell
+Set-Alias scripts Move-WindowsPowerShellScripts
 Set-Alias mods Move-WindowsPowerShellModules
 Set-Alias tests Move-WindowsPowerShellTests
 Set-Alias home Move-Home

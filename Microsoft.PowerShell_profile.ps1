@@ -16,9 +16,6 @@ Set-Alias vim $VIMPATH
 Set-Alias gvi $GVIMPATH
 Set-Alias gvim $GVIMPATH
 
-Set-Alias nb $NETBEANSPATH
-Set-Alias netbeans $NETBEANSPATH
-
 # Load posh-git example profile
 . 'C:\Users\MooMan\Documents\WindowsPowerShell\Scripts\Posh-Git\profile.example.ps1'
 
