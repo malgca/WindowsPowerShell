@@ -22,11 +22,13 @@ function deleteFTPSide
 		[String] $ftpDomain = "ftp.byethost5.com",
 		[String] $ftpPassword = "Fireligh",
 		[String] $ftpPort = 21,
-		[String] $fileToDelete = "txtm8.byethost5.com/htdocs/tex.txt",
-		[String] $ftpPath = "ftp://"+"$ftpUserName"+":"+"$ftpPassword@$ftpDomain"+":"+"$ftpPort/$fileToDelete",
-		[String] $LocalPath = ""
+		[String] $fileToDelete = "txtm8.byethost5.com/htdocs/tex.txt"
 	)
 	
+	[String] $ftpPath = "ftp://"+"$ftpUserName"+":"+"$ftpPassword@$ftpDomain"+":"+"$ftpPort/$fileToDelete"
+
+	write-host $ftpPath
+
 	# create the FtpWebRequest and configure it
 	$ftp = [System.Net.FtpWebRequest]::Create($ftpPath)
 #	$ftp = [System.Net.FtpWebRequest]$ftp
@@ -38,7 +40,7 @@ function deleteFTPSide
 	$ftp.UseBinary = $true
 	$ftp.UsePassive = $true
 
-	$response = [System.Net.FtpWebRequest]$ftp.GetResponse()
+	$response = [System.Net.FtpWebResponse]$ftp.GetResponse()
 	write-host $response
 	$response.Close()
 }

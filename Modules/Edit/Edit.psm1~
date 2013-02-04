@@ -28,14 +28,11 @@ function Edit-EditModule
 
 # Set-Aliases for Editting Module functions
 Set-Alias enavmod Edit-NavigationModule
-Set-Alias eeditmod Edit-EditModule
+Set-Alias eedit Edit-EditModule
 Set-Alias ep Edit-Profile
 Set-Alias evimrc Edit-Vimrc
 Set-Alias egvimrc Edit-GVimrc
 
 # Export Functions to be used in profile file.
-Export-ModuleMember -Function Edit-NavigationModule -Alias enavmod
-Export-ModuleMember -Function Edit-EditModule -Alias eeditmod
-Export-ModuleMember -Function Edit-Profile -Alias ep
-Export-ModuleMember -Function Edit-Vimrc -Alias evimrc
-Export-ModuleMember -Function Edit-GVimrc -Alias egvimrc
+Export-ModuleMember -Function * -Alias *
+
