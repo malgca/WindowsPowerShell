@@ -17,5 +17,5 @@ Set-Alias gvi $GVIMPATH
 Set-Alias gvim $GVIMPATH
 
 # Load posh-git example profile
-. 'C:\Users\MooMan\Documents\WindowsPowerShell\Modules\Posh-Git\profile.example.ps1'
+. "C:\Users\$env:USERNAME\Documents\WindowsPowerShell\Modules\Posh-Git\profile.example.ps1"
 
