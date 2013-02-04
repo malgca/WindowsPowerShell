@@ -32,7 +32,7 @@ function Move-WindowsPowerShellScripts
 
 function Move-DownloadManga
 {
-	cd "~\Downloads\WindowsPowerShell\Scripts\MangaDownload\"
+	cd "~\Documents\WindowsPowerShell\Scripts\MangaDownload\"
 }
 
 # Navigation aliases
