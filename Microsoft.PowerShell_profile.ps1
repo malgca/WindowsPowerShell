@@ -2,6 +2,7 @@
 Import-Module GitVim
 Import-Module Navigation
 Import-Module Edit
+Import-Module PSGet
 
 # Path Variables
 $SCRIPTPATH = "~\Documents\WindowsPowerShell\Scripts"
@@ -19,4 +20,5 @@ Set-Alias nb $NETBEANSPATH
 Set-Alias netbeans $NETBEANSPATH
 
 # Load posh-git example profile
-. 'C:\Users\Moo\Documents\WindowsPowerShell\Scripts\Posh-Git\profile.example.ps1'
+. 'C:\Users\MooMan\Documents\WindowsPowerShell\Scripts\Posh-Git\profile.example.ps1'
+
