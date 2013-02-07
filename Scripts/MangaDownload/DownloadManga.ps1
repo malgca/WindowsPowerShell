@@ -44,6 +44,7 @@ function downloadManga {
 		# Navigate to manga page
 		$ie.Navigate($mangaPanda+$mangaLink)
 
+		write-host ($ie -eq $null)
 		write-host "getting busy... again..."
 		while ($ie.Busy) { start-sleep 5 }	# Pause everything while i.e is working
 		write-host "done being busy... again..."
@@ -82,7 +83,7 @@ function downloadManga {
 
 		# Create a directory to put this under (for now will put it in "Downloads\Manga\$mangaName\$mangaChapter")
 		$mangaChapter = $chapterLink.Substring($chapterLink.LastIndexOf("/") + 1)
-		$mangaDir = "~\Downloads\Manga\$mangaName\$mangaChapter\"
+		$mangaDir = "C:\Users\$env:USERNAME\Downloads\Manga\$mangaName\$mangaChapter\"
 
 		if(-not(Test-Path $mangaDir))
 		{
@@ -95,20 +96,8 @@ function downloadManga {
 		# Create a web client to download the file
 		$webClient = New-Object System.Net.WebClient
 
-		for($i = 1; $i -lt $pagesArray.Count - 1; $i++)	
+		for($i = 0; $i -lt $pagesArray.Count - 1; $i++)	
 		{
-			$img = [System.String]$doc.getElementById("img").src
-
-			$imgExtension = $img.Substring($img.LastIndexOf("."))
-			$localDir = $mangaDir + $i + $imgExtension
-
-			if(-not (Test-Path $localDir))
-			{
-				write-host "Image: " + $img
-				write-host "local dir: " + $localDir
-				$webClient.DownloadFileAsync($img, $localDir)
-			}
-
 			# Get the length of the link for each individual page.
 			$pageLinkLength = ($pagesArray[$i].LastIndexOf("`"") - 1) - $pagesArray[$i].IndexOf("/")
 			# Get the actual link for each individual page.
@@ -123,6 +112,17 @@ function downloadManga {
 
 			# Update doc to get current page's html
 			$doc = $ie.Document
+
+			$img = [System.String]$doc.getElementById("img").src
+
+			$imgExtension = $img.Substring($img.LastIndexOf("."))
+			$localPath = $mangaDir + ($i + 1) + $imgExtension
+
+			if(-not (Test-Path $localPath))
+			{
+				$img
+				$webClient.DownloadFile($img, $localPath)
+			}
 		}
 	}
 
@@ -133,4 +133,4 @@ function downloadManga {
 	}
 }
 
-downloadManga "Historys Strongest Disciple Kenichi"
+downloadManga "Claymore"
