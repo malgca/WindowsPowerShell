@@ -8,22 +8,22 @@ function Edit-Profile
 
 function Edit-Vimrc
 {
-	vim ~\_vimrc
+	vim "C:\Users\$env:USERNAME\_vimrc"
 }
 
 function Edit-GVimrc
 {
-	gvim ~\_gvimrc
+	gvim "C:\Users\$env:USERNAME\_gvimrc"
 }
 
 function Edit-NavigationModule
 {
-	vim ~\Documents\WindowsPowerShell\Modules\Navigation\Navigation.psm1
+	vim "C:\Users\$env:USERNAME\Documents\WindowsPowerShell\Modules\Navigation\Navigation.psm1"
 }
 
 function Edit-EditModule
 {
-	vim ~\Documents\WindowsPowerShell\Modules\Edit\Edit.psm1
+	vim "C:\Users\$env:USERNAME\Documents\WindowsPowerShell\Modules\Edit\Edit.psm1"
 }
 
 # Set-Aliases for Editting Module functions

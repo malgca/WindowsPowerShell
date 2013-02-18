@@ -2,37 +2,47 @@
 
 function Move-WindowsPowerShell 
 { 
-	cd "~\Documents\WindowsPowerShell\" 
+	cd "C:\Users\$env:USERNAME\Documents\WindowsPowerShell\" 
 }
 
 function Move-WindowsPowerShellModules 
 {
-	cd "~\Documents\WindowsPowerShell\Modules\"
+	cd "C:\Users\$env:USERNAME\Documents\WindowsPowerShell\Modules\"
 }
 
 function Move-WindowsPowerShellTests
 {
-	cd "~\Documents\WindowsPowerShell\Scripts\Test\"
+	cd "C:\Users\$env:USERNAME\Documents\WindowsPowerShell\Scripts\Test\"
 }
 
 function Move-Home
 {
-	cd "~\"
+	cd $env:HOME
+}
+
+function Move-UserDir
+{
+	if($env:HOME -ne "C:\Users\$env:USERNAME\")
+	{
+		cd "C:\Users\$env:USERNAME\"
+	}
+
+	Move-Home
 }
 
 function Move-PoshGit
 {
-	cd "~\Documents\WindowsPowerShell\Modules\Posh-Git\"
+	cd "C:\Users\$env:USERNAME\Documents\WindowsPowerShell\Modules\Posh-Git\"
 }
 
 function Move-WindowsPowerShellScripts
 {
-	cd "~\Documents\WindowsPowerShell\Scripts\"
+	cd "C:\Users\$env:USERNAME\Documents\WindowsPowerShell\Scripts\"
 }
 
 function Move-DownloadManga
 {
-	cd "~\Documents\WindowsPowerShell\Scripts\MangaDownload\"
+	cd "C:\Users\$env:USERNAME\Documents\WindowsPowerShell\Scripts\MangaDownload\"
 }
 
 # Navigation aliases
@@ -43,6 +53,7 @@ Set-Alias tests Move-WindowsPowerShellTests
 Set-Alias home Move-Home
 Set-Alias posh Move-PoshGit
 Set-Alias dm Move-DownloadManga
+Set-Alias userdir Move-UserDir
 
 # Export members so they can be picked up as aliases in the $profile 
 # file
