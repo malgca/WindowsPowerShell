@@ -1,5 +1,4 @@
 # Modules Imported
-Import-Module GitVim
 Import-Module Navigation
 Import-Module Edit
 Import-Module PSGet

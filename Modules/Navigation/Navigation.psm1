@@ -35,6 +35,11 @@ function Move-DownloadManga
 	cd "C:\Users\$env:USERNAME\Documents\WindowsPowerShell\Scripts\MangaDownload\"
 }
 
+function Move-BalancedScorecardProject
+{
+	cd "C:\Users\$env:USERNAME\Documents\University\Balanced Scorecard Project\"
+}
+
 # Navigation aliases
 Set-Alias wps Move-WindowsPowerShell
 Set-Alias scripts Move-WindowsPowerShellScripts
@@ -43,6 +48,7 @@ Set-Alias tests Move-WindowsPowerShellTests
 Set-Alias home Move-Home
 Set-Alias posh Move-PoshGit
 Set-Alias dm Move-DownloadManga
+Set-Alias proj Move-BalancedScorecardProject
 
 # Export members so they can be picked up as aliases in the $profile
 # file

@@ -1,3 +1,5 @@
 # Ignore all backup files created by vim.
 *~
 *.*.sw?
+# Ignore Posh-Git Folder
+/Modules/Posh-Git/
