@@ -8,12 +8,7 @@ function Edit-Profile
 
 function Edit-Vimrc
 {
-	vim "C:\Users\$env:USERNAME\_vimrc"
-}
-
-function Edit-GVimrc
-{
-	gvim "C:\Users\$env:USERNAME\_gvimrc"
+	vim "C:\Users\$env:USERNAME\_gvimrc"
 }
 
 function Edit-NavigationModule
@@ -31,8 +26,6 @@ Set-Alias enavmod Edit-NavigationModule
 Set-Alias eeditmod Edit-EditModule
 Set-Alias ep Edit-Profile
 Set-Alias evimrc Edit-Vimrc
-Set-Alias egvimrc Edit-GVimrc
 
 # Export Functions to be used in profile file.
 Export-ModuleMember -Function * -Alias *
-

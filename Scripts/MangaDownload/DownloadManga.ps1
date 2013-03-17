@@ -1,9 +1,23 @@
 # Script to automate downloading manga
 # Version: 1.0
 # Maintainer: Malusi Gcakasi
-# Last Modified: 
+# Last Modified: Mar 09, 2013 12:42 AM
 
 $mangaPanda = "www.mangapanda.com/"					# Site from which to download manga
+
+function getBrowserDoc {
+	
+	$ie = New-Object -com "InternetExplorer.Application" 	# Open IE
+	$ie.Navigate($mangaPanda+"alphabetical")				# Go to the manga list page
+
+	write-host "getting busy"
+	while ($ie.Busy) { start-sleep 5 }	# Pause everything while i.e is working
+	write-host "done being busy"
+
+	$doc = $ie.Document		# Get the page document that we're now exploring
+
+	$doc	# Return doc
+}
 
 function downloadManga {
 	Param(
@@ -14,21 +28,11 @@ function downloadManga {
 										# will automatically download latest one.
 	)
 
-	Begin
-	{
-		$ie = New-Object -com "InternetExplorer.Application" 	# Open IE
-		$ie.Navigate($mangaPanda+"alphabetical")				# Go to the manga list page
-
-		write-host "getting busy"
-		while ($ie.Busy) { start-sleep 5 }	# Pause everything while i.e is working
-		write-host "done being busy"
-
-		$doc = $ie.Document		# Get the page document that we're now exploring
-
-		write-host "getting links"
-		# TODO: Convert following array to dictionary for speed.
-		$linkArray = ([System.String]$doc.getElementById("wrapper_body").InnerHtml).Split("`r`n")
-	}
+	$doc = getBrowserDoc
+		
+	write-host "getting links"
+	# TODO: Convert following array to dictionary for speed.
+	$linkArray = ([System.String]$doc.getElementById("wrapper_body").InnerHtml).Split("`r`n")
 
 	Process
 	{	
