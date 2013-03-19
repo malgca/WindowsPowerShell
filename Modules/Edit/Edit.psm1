@@ -1,4 +1,7 @@
-# Module to save all my editting functions in order to enforce a cleaner $profile file.
+# Description: Module to save all my editting functions in order to enforce a cleaner $profile file.
+# Version: 1.0
+# Author: Malusi Gcakasi
+# Last Modified: Mar 19, 2013 07:20 PM
 
 # Functions for files I edit often
 function Edit-Profile
@@ -9,6 +12,21 @@ function Edit-Profile
 function Edit-Vimrc
 {
 	vim "C:\Users\$env:USERNAME\_gvimrc"
+}
+
+function Edit-VimMappings
+{
+	vim "C:\Users\$env:USERNAME\.vim\config\gvim\mappings.vim"
+}
+
+function Edit-VimAutocommands
+{
+	vim "C:\Users\$env:USERNAME\.vim\config\gvim\autocommands.vim"
+}
+
+function Edit-VimFunctions
+{
+	vim "C:\Users\$env:USERNAME\.vim\config\gvim\functions.vim"
 }
 
 function Edit-NavigationModule
@@ -25,7 +43,10 @@ function Edit-EditModule
 Set-Alias enavmod Edit-NavigationModule
 Set-Alias eeditmod Edit-EditModule
 Set-Alias ep Edit-Profile
-Set-Alias evimrc Edit-Vimrc
+Set-Alias evrc Edit-Vimrc
+Set-Alias evmap Edit-VimMappings
+Set-Alias evauto Edit-VimAutocommands
+Set-Alias evfunc Edit-VimFunctions
 
 # Export Functions to be used in profile file.
 Export-ModuleMember -Function * -Alias *
