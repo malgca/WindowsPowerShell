@@ -1,7 +1,7 @@
 # Description: File containing short name aliases (and their functions) for places I navigate to often.
 # Author: Malusi Gcakasi
 # Version: 0.1
-# Last Modified: Mar 22, 2013 12:33 PM
+# Last Modified: Mar 22, 2013 02:13 PM
 
 function Move-WindowsPowerShell 
 { 
@@ -48,9 +48,9 @@ function Move-BalancedScorecardProject
 	cd "C:\Users\$env:USERNAME\Documents\University\Balanced Scorecard Project\"
 }
 
-function Move-ProjectTreatise
+function Move-ProjectNotes
 {
-	cd "C:\Users\$env:USERNAME\Documents\University\Balanced Scorecard Project\Treatise"
+	cd "C:\Users\$env:USERNAME\Documents\University\Balanced Scorecard Project\Treatise\Notes"
 }
 
 function Move-ProjectReadingList
@@ -80,7 +80,7 @@ Set-Alias home Move-Home
 Set-Alias vimfol Move-VimFolder
 
 Set-Alias projfol Move-BalancedScorecardProject
-Set-Alias projtre Move-ProjectTreatise
+Set-Alias projtre Move-ProjectNotes
 Set-Alias projrl Move-ProjectReadingList
 Set-Alias projmee Move-ProjectMeetings
 Set-Alias projtem Move-ProjectTemplates
