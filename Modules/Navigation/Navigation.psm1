@@ -1,7 +1,7 @@
 # Description: File containing short name aliases (and their functions) for places I navigate to often.
 # Author: Malusi Gcakasi
 # Version: 0.1
-# Last Modified: Mar 22, 2013 02:13 PM
+# Last Modified: Mar 22, 2013 02:17 PM
 
 function Move-WindowsPowerShell 
 { 
@@ -68,6 +68,11 @@ function Move-ProjectTemplates
 	cd "C:\Users\$env:USERNAME\Documents\University\Balanced Scorecard Project\Templates"
 }
 
+function Move-ProjectExtantSystems
+{
+	cd "C:\Users\$env:USERNAME\Documents\University\Balanced Scorecard Project\Extant Systems"
+}
+
 # Navigation aliases
 Set-Alias wps Move-WindowsPowerShell
 Set-Alias scripts Move-WindowsPowerShellScripts
@@ -84,6 +89,7 @@ Set-Alias projtre Move-ProjectNotes
 Set-Alias projrl Move-ProjectReadingList
 Set-Alias projmee Move-ProjectMeetings
 Set-Alias projtem Move-ProjectTemplates
+Set-Alias projext Move-ProjectExtantSystems
 
 # Export members so they can be picked up as aliases in the $profile
 # file
