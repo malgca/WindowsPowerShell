@@ -1,7 +1,7 @@
 # Description: Module to save all my editting functions in order to enforce a cleaner $profile file.
 # Version: 1.0
 # Author: Malusi Gcakasi
-# Last Modified: Mar 22, 2013 02:11 PM
+# Last Modified: Mar 22, 2013 02:48 PM
 
 function Edit-Profile
 {
@@ -61,7 +61,7 @@ function Edit-ProjectNotes
 		$focus.Style = "Title"
 		$focus.TypeText("Notes: $time")
 		$focus.TypeParagraph()
-		$focus.Style = "Title"
+		$focus.Style = "Heading 1"
 		$focus.TypeText("<Additional Title Here>")
 		$focus.TypeParagraph( )
 		$focus.TypeParagraph()
