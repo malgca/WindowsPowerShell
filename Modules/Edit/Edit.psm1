@@ -1,7 +1,7 @@
 # Description: Module to save all my editting functions in order to enforce a cleaner $profile file.
 # Version: 1.0
 # Author: Malusi Gcakasi
-# Last Modified: Mar 22, 2013 02:48 PM
+# Last Modified: Mar 26, 2013 08:00 AM
 
 function Edit-Profile
 {

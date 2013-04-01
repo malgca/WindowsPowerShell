@@ -1,7 +1,7 @@
 # Description: File containing short name aliases (and their functions) for places I navigate to often.
 # Author: Malusi Gcakasi
 # Version: 0.1
-# Last Modified: Mar 22, 2013 02:17 PM
+# Last Modified: Apr 01, 2013 06:18 PM
 
 function Move-WindowsPowerShell 
 { 
@@ -43,14 +43,35 @@ function Move-VimFolder
 	cd "C:\Users\$env:USERNAME\.vim"
 }
 
+function Move-VimTemplates
+{
+	cd "C:\Users\$env:USERNAME\.vim\templates"
+}
+
+function Move-VimAfter
+{
+	cd "C:\Users\$env:USERNAME\.vim\after"
+}
+
+function Move-DevelopmentFolder
+{
+	cd "C:\Users\$env:USERNAME\Development"
+}
+
 function Move-BalancedScorecardProject
 {
-	cd "C:\Users\$env:USERNAME\Documents\University\Balanced Scorecard Project\"
+	cd "C:\Users\$env:USERNAME\Documents\University\Balanced Scorecard Project"
 }
 
 function Move-ProjectNotes
 {
 	cd "C:\Users\$env:USERNAME\Documents\University\Balanced Scorecard Project\Treatise\Notes"
+}
+
+function Move-ProjectImages
+{
+	cd "C:\Users\$env:USERNAME\Documents\University\Balanced Scorecard Project\Treatise\Images"
+
 }
 
 function Move-ProjectReadingList
@@ -82,10 +103,15 @@ Set-Alias posh Move-PoshGit
 Set-Alias dm Move-DownloadManga
 
 Set-Alias home Move-Home
+Set-Alias dev Move-DevelopmentFolder
+
 Set-Alias vimfol Move-VimFolder
+Set-Alias vimtem Move-VimTemplates
+Set-Alias vimaft Move-VimAfter
 
 Set-Alias projfol Move-BalancedScorecardProject
-Set-Alias projtre Move-ProjectNotes
+Set-Alias projnot Move-ProjectNotes
+Set-Alias projimg Move-ProjectImages
 Set-Alias projrl Move-ProjectReadingList
 Set-Alias projmee Move-ProjectMeetings
 Set-Alias projtem Move-ProjectTemplates
