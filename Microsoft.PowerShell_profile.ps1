@@ -14,5 +14,5 @@ Set-Alias vim $GVIMPATH
 
 function clearLogs
 {
-	. "C:\Users\$env:USERNAME\Documents\WindowsPowerShell\Scripts\Thunderbird\removeLogs.ps1"
+	. "C:\Users\$env:USERNAME\Documents\WindowsPowerShell\Scripts\Pidgin\removeLogs.ps1"
 }
