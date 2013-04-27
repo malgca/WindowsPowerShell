@@ -2,4 +2,4 @@
 *~
 *.*.sw?
 # Ignore Posh-Git Folder
-/Modules/Posh-Git/
+Modules/posh-git/
