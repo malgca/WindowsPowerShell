@@ -1,3 +1,7 @@
+# Description: Gitignore file for powershell folder.
+# Author: Malusi Gcakasi
+# Last Modified: Aug 17, 2013 12:35 AM
+
 # Ignore all backup files created by vim.
 *~
 *.*.sw?

@@ -1,7 +1,6 @@
 # Modules Imported
 Import-Module Navigation
 Import-Module Edit
-Import-Module PSGet
 
 # Path Variables
 $GVIMPATH = "C:\Program Files (x86)\Vim\vim73\gvim.exe"
