@@ -1,7 +1,7 @@
 # Description: File containing short name aliases (and their functions) for places I navigate to often.
 # Author: Malusi Gcakasi
 # Version: 0.1
-# Last Modified: Apr 01, 2013 06:18 PM
+# Last Modified: Sep 22, 2013 02:27 PM
 
 function Move-WindowsPowerShell 
 { 
@@ -117,6 +117,5 @@ Set-Alias projmee Move-ProjectMeetings
 Set-Alias projtem Move-ProjectTemplates
 Set-Alias projext Move-ProjectExtantSystems
 
-# Export members so they can be picked up as aliases in the $profile
-# file
+# Export members so they can be picked up as aliases in the $profile file
 Export-ModuleMember -Function * -Alias *
