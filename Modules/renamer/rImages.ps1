@@ -1,7 +1,7 @@
-# Description: Contains basic image manipulation properties
+# Description: Contains image renaming functions
 # Author: Malusi Gcakasi
 # Version: 0.1
-# Last Modified: Sep 22, 2013 05:29 PM
+# Last Modified: Mar 16, 2014 04:32 PM
 
 #Import Assemblies
 Add-Type -Assembly System.Drawing
@@ -21,8 +21,7 @@ function Add-TagByResolution {
 	$minWidth = 800
 	$minHeight = 600
 
-	Get-DirectoryImages | ? { $_.Width -le $minWidth -and $_.Height -le $minHeight } | % { write-host $_.Tag }
+	Get-DirectoryImages | ? { $_.Width -le $minWidth -and $_.Height -le $minHeight } | % { write-host $_.Width }
 }
 
-# Export Members
-Export-ModuleMember -Function * -Alias *
+

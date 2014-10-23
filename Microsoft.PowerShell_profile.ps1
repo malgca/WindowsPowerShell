@@ -1,12 +1,11 @@
 # Modules Imported
 Import-Module Navigation
 Import-Module Edit
-Import-Module Images
-
-cd "E:\Pictures\wallpapers\anime"
+Import-Module renamer
+Import-Module Commands
 
 # Path Variables
-$GVIMPATH = "C:\Program Files (x86)\Vim\vim73\gvim.exe"
+$GVIMPATH = "C:\Program Files (x86)\Vim\vim74\gvim.exe"
 
 # Launcher Aliases
 Set-Alias vim $GVIMPATH
