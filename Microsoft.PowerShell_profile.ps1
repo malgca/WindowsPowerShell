@@ -1,8 +1,6 @@
 # Modules Imported
 Import-Module Navigation
 Import-Module Edit
-Import-Module renamer
-Import-Module Commands
 
 # Path Variables
 $GVIMPATH = "C:\Program Files (x86)\Vim\vim74\gvim.exe"
