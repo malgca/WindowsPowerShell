@@ -23,18 +23,12 @@ function Move-Home
 	cd $env:HOMEPATH
 }
 
-function Move-VimFolder
-{
-	cd "C:\Users\$env:USERNAME\.vim\"
-}
-
 # Navigation aliases
-Set-Alias mvps Move-WindowsPowerShell
-Set-Alias mvmd Move-WindowsPowerShellModules
-Set-Alias mvpsg Move-PoshGit
+Set-Alias mvwps Move-WindowsPowerShell
+Set-Alias mvmod Move-WindowsPowerShellModules
+Set-Alias mvposh Move-PoshGit
 
 Set-Alias home Move-Home
-Set-Alias mvvf Move-VimFolder
 
 # Export members so they can be picked up as aliases in the $profile file
 Export-ModuleMember -Function * -Alias *
